@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>VorgangspositionResponse | @democracy-deutschland/bt-dip-sdk</title>
+	<title>DipApiGetVorgaengeRequest | @democracy-deutschland/bt-dip-sdk</title>
 	<meta name="description" content="Documentation for @democracy-deutschland/bt-dip-sdk">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,10 @@
 					<a href="../modules.html">@democracy-deutschland/bt-dip-sdk</a>
 				</li>
 				<li>
-					<a href="vorgangspositionresponse.html">VorgangspositionResponse</a>
+					<a href="dipapigetvorgaengerequest.html">DipApiGetVorgaengeRequest</a>
 				</li>
 			</ul>
-			<h1>Interface VorgangspositionResponse</h1>
+			<h1>Interface DipApiGetVorgaengeRequest</h1>
 		</div>
 	</div>
 </header>
@@ -67,11 +67,14 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Request parameters for getVorgaenge operation in DipApi.</p>
+					</div>
 					<dl class="tsd-comment-tags">
 						<dt>export</dt>
 						<dd></dd>
 						<dt>interface</dt>
-						<dd><p>VorgangspositionResponse</p>
+						<dd><p>DipApiGetVorgaengeRequest</p>
 						</dd>
 					</dl>
 				</div>
@@ -80,7 +83,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">VorgangspositionResponse</span>
+						<span class="target">DipApiGetVorgaengeRequest</span>
 					</li>
 				</ul>
 			</section>
@@ -91,9 +94,13 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="vorgangspositionresponse.html#cursor" class="tsd-kind-icon">cursor</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="vorgangspositionresponse.html#documents" class="tsd-kind-icon">documents</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="vorgangspositionresponse.html#numfound" class="tsd-kind-icon">num<wbr>Found</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="dipapigetvorgaengerequest.html#cursor" class="tsd-kind-icon">cursor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="dipapigetvorgaengerequest.html#fdatumend" class="tsd-kind-icon">f<wbr>Datum<wbr>End</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="dipapigetvorgaengerequest.html#fdatumstart" class="tsd-kind-icon">f<wbr>Datum<wbr>Start</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="dipapigetvorgaengerequest.html#fdrucksache" class="tsd-kind-icon">f<wbr>Drucksache</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="dipapigetvorgaengerequest.html#fid" class="tsd-kind-icon">f<wbr>Id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="dipapigetvorgaengerequest.html#fplenarprotokoll" class="tsd-kind-icon">f<wbr>Plenarprotokoll</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="dipapigetvorgaengerequest.html#format" class="tsd-kind-icon">format</a></li>
 							</ul>
 						</section>
 					</div>
@@ -103,51 +110,119 @@
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="cursor" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> cursor</h3>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> cursor</h3>
 					<div class="tsd-signature tsd-kind-icon">cursor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in __generated/api.ts:778</li>
+							<li>Defined in __generated/api.ts:2097</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<dl class="tsd-comment-tags">
 							<dt>memberof</dt>
-							<dd><p>VorgangspositionResponse</p>
+							<dd><p>DipApiGetVorgaenge</p>
 							</dd>
 						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="documents" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> documents</h3>
-					<div class="tsd-signature tsd-kind-icon">documents<span class="tsd-signature-symbol">:</span> <a href="vorgang.html" class="tsd-signature-type" data-tsd-kind="Interface">Vorgang</a><span class="tsd-signature-symbol">[]</span></div>
+					<a name="fdatumend" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> f<wbr>Datum<wbr>End</h3>
+					<div class="tsd-signature tsd-kind-icon">f<wbr>Datum<wbr>End<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in __generated/api.ts:772</li>
+							<li>Defined in __generated/api.ts:2118</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<dl class="tsd-comment-tags">
 							<dt>memberof</dt>
-							<dd><p>VorgangspositionResponse</p>
+							<dd><p>DipApiGetVorgaenge</p>
 							</dd>
 						</dl>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="numfound" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> num<wbr>Found</h3>
-					<div class="tsd-signature tsd-kind-icon">num<wbr>Found<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="fdatumstart" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> f<wbr>Datum<wbr>Start</h3>
+					<div class="tsd-signature tsd-kind-icon">f<wbr>Datum<wbr>Start<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in __generated/api.ts:766</li>
+							<li>Defined in __generated/api.ts:2111</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<dl class="tsd-comment-tags">
 							<dt>memberof</dt>
-							<dd><p>VorgangspositionResponse</p>
+							<dd><p>DipApiGetVorgaenge</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="fdrucksache" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> f<wbr>Drucksache</h3>
+					<div class="tsd-signature tsd-kind-icon">f<wbr>Drucksache<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in __generated/api.ts:2132</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>memberof</dt>
+							<dd><p>DipApiGetVorgaenge</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="fid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> f<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">f<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in __generated/api.ts:2125</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>memberof</dt>
+							<dd><p>DipApiGetVorgaenge</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="fplenarprotokoll" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> f<wbr>Plenarprotokoll</h3>
+					<div class="tsd-signature tsd-kind-icon">f<wbr>Plenarprotokoll<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in __generated/api.ts:2139</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>memberof</dt>
+							<dd><p>DipApiGetVorgaenge</p>
+							</dd>
+						</dl>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="format" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> <span class="tsd-flag ts-flagReadonly">Readonly</span> format</h3>
+					<div class="tsd-signature tsd-kind-icon">format<span class="tsd-signature-symbol">:</span> <a href="../enums/formatprop.html" class="tsd-signature-type" data-tsd-kind="Enumeration">FormatProp</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in __generated/api.ts:2104</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<dl class="tsd-comment-tags">
+							<dt>memberof</dt>
+							<dd><p>DipApiGetVorgaenge</p>
 							</dd>
 						</dl>
 					</div>
@@ -209,9 +284,36 @@
 					<li class=" tsd-kind-interface">
 						<a href="dipapigetplenarprotokollrequest.html" class="tsd-kind-icon">Dip<wbr>Api<wbr>Get<wbr>Plenarprotokoll<wbr>Request</a>
 					</li>
-					<li class=" tsd-kind-interface">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface">
 						<a href="dipapigetvorgaengerequest.html" class="tsd-kind-icon">Dip<wbr>Api<wbr>Get<wbr>Vorgaenge<wbr>Request</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="dipapigetvorgaengerequest.html#cursor" class="tsd-kind-icon">cursor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="dipapigetvorgaengerequest.html#fdatumend" class="tsd-kind-icon">f<wbr>Datum<wbr>End</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="dipapigetvorgaengerequest.html#fdatumstart" class="tsd-kind-icon">f<wbr>Datum<wbr>Start</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="dipapigetvorgaengerequest.html#fdrucksache" class="tsd-kind-icon">f<wbr>Drucksache</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="dipapigetvorgaengerequest.html#fid" class="tsd-kind-icon">f<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="dipapigetvorgaengerequest.html#fplenarprotokoll" class="tsd-kind-icon">f<wbr>Plenarprotokoll</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="dipapigetvorgaengerequest.html#format" class="tsd-kind-icon">format</a>
+							</li>
+						</ul>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface">
 						<a href="dipapigetvorgangrequest.html" class="tsd-kind-icon">Dip<wbr>Api<wbr>Get<wbr>Vorgang<wbr>Request</a>
 					</li>
@@ -254,24 +356,9 @@
 					<li class=" tsd-kind-interface">
 						<a href="vorgangsposition.html" class="tsd-kind-icon">Vorgangsposition</a>
 					</li>
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface">
+					<li class=" tsd-kind-interface">
 						<a href="vorgangspositionresponse.html" class="tsd-kind-icon">Vorgangsposition<wbr>Response</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="vorgangspositionresponse.html#cursor" class="tsd-kind-icon">cursor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="vorgangspositionresponse.html#documents" class="tsd-kind-icon">documents</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="vorgangspositionresponse.html#numfound" class="tsd-kind-icon">num<wbr>Found</a>
-							</li>
-						</ul>
 					</li>
-				</ul>
-				<ul class="after-current">
 					<li class=" tsd-kind-function">
 						<a href="../modules.html#dipapiaxiosparamcreator" class="tsd-kind-icon">Dip<wbr>Api<wbr>Axios<wbr>Param<wbr>Creator</a>
 					</li>
