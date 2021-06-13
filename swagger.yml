@@ -1,0 +1,715 @@
+openapi: 3.0.1
+info:
+  title: Bundestag DIP
+  description: defaultDescription
+  version: "0.1"
+servers:
+  - url: "https://search.dip.bundestag.de"
+security:
+  - bearerAuth: []
+paths:
+  /api/v1/aktivitaet:
+    get:
+      tags:
+        - Dip
+      operationId: getAktivitaeten
+      description: Metadaten zu Aktivitäte
+      parameters:
+        - $ref: "#/components/parameters/Cursor"
+        - $ref: "#/components/parameters/DateStart"
+        - $ref: "#/components/parameters/DateEnd"
+        - $ref: "#/components/parameters/Format"
+        - $ref: "#/components/parameters/FId"
+        - $ref: "#/components/parameters/Zuordnung"
+        - $ref: "#/components/parameters/Drucksache"
+        - $ref: "#/components/parameters/Plenarprotokoll"
+      responses:
+        "200":
+          description: Metadaten zu Aktivitäte
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AktivitaetResponse"
+  /api/v1/vorgang:
+    get:
+      tags:
+        - Dip
+      operationId: getVorgaenge
+      description: Auto generated using Swagger Inspector
+      parameters:
+        - $ref: "#/components/parameters/Cursor"
+        - $ref: "#/components/parameters/Format"
+        - $ref: "#/components/parameters/DateStart"
+        - $ref: "#/components/parameters/DateEnd"
+        - $ref: "#/components/parameters/FId"
+        - $ref: "#/components/parameters/Drucksache"
+        - $ref: "#/components/parameters/Plenarprotokoll"
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VorgangResponse"
+  /api/v1/plenarprotokoll:
+    get:
+      tags:
+        - Dip
+      operationId: getPlenarprotokoelle
+      description: Auto generated using Swagger Inspector
+      parameters:
+        - $ref: "#/components/parameters/Cursor"
+        - $ref: "#/components/parameters/DateStart"
+        - $ref: "#/components/parameters/DateEnd"
+        - $ref: "#/components/parameters/Format"
+        - $ref: "#/components/parameters/FId"
+        - $ref: "#/components/parameters/Zuordnung"
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlenarprotokollResponse"
+  /api/v1/drucksache:
+    get:
+      tags:
+        - Dip
+      operationId: getDurcksachen
+      description: Auto generated using Swagger Inspector
+      parameters:
+        - $ref: "#/components/parameters/Cursor"
+        - $ref: "#/components/parameters/DateStart"
+        - $ref: "#/components/parameters/DateEnd"
+        - $ref: "#/components/parameters/Format"
+        - $ref: "#/components/parameters/FId"
+        - $ref: "#/components/parameters/Zuordnung"
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DrucksacheResponse"
+  /api/v1/person:
+    get:
+      tags:
+        - Dip
+      operationId: getPersonen
+      description: Auto generated using Swagger Inspector
+      parameters:
+        - $ref: "#/components/parameters/Cursor"
+        - $ref: "#/components/parameters/DateStart"
+        - $ref: "#/components/parameters/DateEnd"
+        - $ref: "#/components/parameters/Format"
+        - $ref: "#/components/parameters/FId"
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PersonResponse"
+  /api/v1/vorgangsposition:
+    get:
+      tags:
+        - Dip
+      operationId: getVorgangspositionen
+      description: Metadaten zu Vorgangspositionen
+      parameters:
+        - $ref: "#/components/parameters/Cursor"
+        - $ref: "#/components/parameters/DateStart"
+        - $ref: "#/components/parameters/DateEnd"
+        - $ref: "#/components/parameters/Format"
+        - $ref: "#/components/parameters/FId"
+        - $ref: "#/components/parameters/Zuordnung"
+        - $ref: "#/components/parameters/Drucksache"
+        - $ref: "#/components/parameters/Plenarprotokoll"
+        - $ref: "#/components/parameters/Vorgang"
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VorgangspositionResponse"
+  /api/v1/aktivitaet/{id}:
+    get:
+      tags:
+        - Dip
+      operationId: getAktivitaet
+      description: Metadaten zu Vorgangspositionen
+      parameters:
+        - $ref: "#/components/parameters/Id"
+        - $ref: "#/components/parameters/Format"
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Aktivitaet"
+  /api/v1/vorgang/{id}:
+    get:
+      tags:
+        - Dip
+      operationId: getVorgang
+      description: Metadaten zu Vorgangspositionen
+      parameters:
+        - $ref: "#/components/parameters/Id"
+        - $ref: "#/components/parameters/Format"
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Vorgang"
+  /api/v1/plenarprotokoll/{id}:
+    get:
+      tags:
+        - Dip
+      operationId: getPlenarprotokoll
+      description: Metadaten zu Vorgangspositionen
+      parameters:
+        - $ref: "#/components/parameters/Id"
+        - $ref: "#/components/parameters/Format"
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Plenarprotokoll"
+  /api/v1/drucksache/{id}:
+    get:
+      tags:
+        - Dip
+      operationId: getDrucksache
+      description: Metadaten zu Vorgangspositionen
+      parameters:
+        - $ref: "#/components/parameters/Id"
+        - $ref: "#/components/parameters/Format"
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Drucksache"
+  /api/v1/person/{id}:
+    get:
+      tags:
+        - Dip
+      operationId: getPerson
+      description: Metadaten zu Vorgangspositionen
+      parameters:
+        - $ref: "#/components/parameters/Id"
+        - $ref: "#/components/parameters/Format"
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Person"
+  /api/v1/vorgangsposition/{id}:
+    get:
+      tags:
+        - Dip
+      operationId: getVorgangsposition
+      description: Metadaten zu Vorgangspositionen
+      parameters:
+        - $ref: "#/components/parameters/Id"
+        - $ref: "#/components/parameters/Format"
+      responses:
+        "200":
+          description: Auto generated using Swagger Inspector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Vorgangsposition"
+components:
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: string
+      example: 234344
+    FId:
+      name: f.id
+      in: query
+      schema:
+        type: string
+      example: "279028"
+    Cursor:
+      name: cursor
+      in: query
+      schema:
+        type: string
+      example: AoJwwLKE9%2FkCLlZvcmdhbmctMjc5MDMw
+    DateStart:
+      name: f.datum.start
+      in: query
+      schema:
+        $ref: "#/components/schemas/DateProp"
+      example: "2021-06-13"
+    DateEnd:
+      name: f.datum.end
+      in: query
+      schema:
+        $ref: "#/components/schemas/DateProp"
+      example: "2021-06-13"
+    Zuordnung:
+      name: f.zuordnung
+      in: query
+      schema:
+        $ref: "#/components/schemas/ZuordnungProp"
+    Format:
+      name: format
+      in: query
+      schema:
+        $ref: "#/components/schemas/FormatProp"
+    Drucksache:
+      name: f.drucksache
+      in: query
+      schema:
+        type: string
+      example: "279029"
+    Plenarprotokoll:
+      name: f.plenarprotokoll
+      in: query
+      schema:
+        type: string
+      example: "279029"
+    Vorgang:
+      name: f.vorgang
+      in: query
+      schema:
+        type: string
+      example: "84394"
+    Ressourcentyp:
+      name: ressourcentyp
+      in: path
+      required: true
+      schema:
+        type: string
+        enum:
+          [
+            aktivitaet,
+            drucksache,
+            person,
+            plenarprotokoll,
+            vorgang,
+            vorgangsposition,
+          ]
+  securitySchemes:
+    bearerAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: "Enter your bearer token in the format ***ApiKey XYZ…***"
+  schemas:
+    AktivitaetResponse:
+      type: object
+      properties:
+        numFound:
+          type: integer
+          format: int32
+          example: 1539079
+        documents:
+          type: array
+          items:
+            $ref: "#/components/schemas/Aktivitaet"
+        cursor:
+          type: string
+          example: AoJwwLKE9/kCMkFrdGl2aXRhZXQtMTU2MDQ2MQ==
+    VorgangResponse:
+      type: object
+      properties:
+        numFound:
+          type: integer
+          format: int32
+          example: 1539079
+        documents:
+          type: array
+          items:
+            $ref: "#/components/schemas/Vorgang"
+        cursor:
+          type: string
+          example: AoJwwLKE9/kCMkFrdGl2aXRhZXQtMTU2MDQ2MQ==
+    VorgangspositionResponse:
+      type: object
+      properties:
+        numFound:
+          type: integer
+          format: int32
+          example: 1539079
+        documents:
+          type: array
+          items:
+            $ref: "#/components/schemas/Vorgang"
+        cursor:
+          type: string
+          example: AoJwwLKE9/kCMkFrdGl2aXRhZXQtMTU2MDQ2MQ==
+    PlenarprotokollResponse:
+      type: object
+      properties:
+        numFound:
+          type: integer
+          format: int32
+          example: 1539079
+        documents:
+          type: array
+          items:
+            $ref: "#/components/schemas/Plenarprotokoll"
+        cursor:
+          type: string
+          example: AoJwwLKE9/kCMkFrdGl2aXRhZXQtMTU2MDQ2MQ==
+    DrucksacheResponse:
+      type: object
+      properties:
+        numFound:
+          type: integer
+          format: int32
+          example: 1539079
+        documents:
+          type: array
+          items:
+            $ref: "#/components/schemas/Drucksache"
+        cursor:
+          type: string
+          example: AoJwwLKE9/kCMkFrdGl2aXRhZXQtMTU2MDQ2MQ==
+    PersonResponse:
+      type: object
+      properties:
+        numFound:
+          type: integer
+          format: int32
+          example: 1539079
+        documents:
+          type: array
+          items:
+            $ref: "#/components/schemas/Person"
+        cursor:
+          type: string
+          example: AoJwwLKE9/kCMkFrdGl2aXRhZXQtMTU2MDQ2MQ==
+    Aktivitaet:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1559848
+        aktivitaetsart:
+          type: string
+          example: Berichterstattung
+        typ:
+          type: string
+          example: Aktivität
+        vorgangsbezug_anzahl:
+          type: integer
+          format: int32
+          example: 4
+        dokumentart:
+          type: string
+          example: Drucksache
+        wahlperiode:
+          type: integer
+          format: int32
+          example: 19
+        datum:
+          type: string
+          format: date
+          example: 2021-06-10
+        titel:
+          type: string
+          example: Wilhelm von Gottberg MdB AfD
+        fundstelle:
+          $ref: "#/components/schemas/Fundstelle"
+        vorgangsbezug:
+          $ref: "#/components/schemas/Vorgangsbezug"
+    Vorgangsposition:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1
+        vorgangsposition:
+          type: string
+          example: Antrag zur Weitergeltung der Geschäftsordnung
+        zuordnung:
+          type: string
+          example: BT
+        gang:
+          type: boolean
+        fortsetzung:
+          type: boolean
+        nachtrag:
+          type: boolean
+        vorgangstyp:
+          type: string
+          example: Geschäftsordnung
+        typ:
+          type: string
+          example: Vorgangsposition
+        titel:
+          type: string
+          example: Weitergeltung von Geschäftsordnungsrecht
+        aktivitaet_anzahl:
+          type: integer
+          format: int32
+          example: 0
+        dokumentart:
+          type: string
+          example: Drucksache
+        vorgang_id:
+          type: string
+          example: 3
+        datum:
+          type: string
+          format: date
+          example: 2005-10-18
+        fundstelle:
+          $ref: "#/components/schemas/Fundstelle"
+        urheber:
+          $ref: "#/components/schemas/Urheber"
+    Vorgang:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1
+        vorgangsposition:
+          type: string
+          example: Antrag zur Weitergeltung der Geschäftsordnung
+        zuordnung:
+          type: string
+          example: BT
+        gang:
+          type: boolean
+        fortsetzung:
+          type: boolean
+        nachtrag:
+          type: boolean
+        vorgangstyp:
+          type: string
+          example: Geschäftsordnung
+        typ:
+          type: string
+          example: Vorgangsposition
+        titel:
+          type: string
+          example: Weitergeltung von Geschäftsordnungsrecht
+        aktivitaet_anzahl:
+          type: integer
+          format: int32
+          example: 0
+        dokumentart:
+          type: string
+          example: Drucksache
+        vorgang_id:
+          type: string
+          example: 3
+        datum:
+          type: string
+          format: date
+          example: 2005-10-18
+        fundstelle:
+          $ref: "#/components/schemas/Fundstelle"
+        urheber:
+          $ref: "#/components/schemas/Urheber"
+    Plenarprotokoll:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1
+        vorgangsposition:
+          type: string
+          example: Antrag zur Weitergeltung der Geschäftsordnung
+        zuordnung:
+          type: string
+          example: BT
+        gang:
+          type: boolean
+        fortsetzung:
+          type: boolean
+        nachtrag:
+          type: boolean
+        vorgangstyp:
+          type: string
+          example: Geschäftsordnung
+        typ:
+          type: string
+          example: Vorgangsposition
+        titel:
+          type: string
+          example: Weitergeltung von Geschäftsordnungsrecht
+        aktivitaet_anzahl:
+          type: integer
+          format: int32
+          example: 0
+        dokumentart:
+          type: string
+          example: Drucksache
+        vorgang_id:
+          type: string
+          example: 3
+        datum:
+          type: string
+          format: date
+          example: 2005-10-18
+        fundstelle:
+          $ref: "#/components/schemas/Fundstelle"
+        urheber:
+          $ref: "#/components/schemas/Urheber"
+    Drucksache:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 1
+        vorgangsposition:
+          type: string
+          example: Antrag zur Weitergeltung der Geschäftsordnung
+        zuordnung:
+          type: string
+          example: BT
+        gang:
+          type: boolean
+        fortsetzung:
+          type: boolean
+        nachtrag:
+          type: boolean
+        vorgangstyp:
+          type: string
+          example: Geschäftsordnung
+        typ:
+          type: string
+          example: Vorgangsposition
+        titel:
+          type: string
+          example: Weitergeltung von Geschäftsordnungsrecht
+        aktivitaet_anzahl:
+          type: integer
+          format: int32
+          example: 0
+        dokumentart:
+          type: string
+          example: Drucksache
+        vorgang_id:
+          type: string
+          example: 3
+        datum:
+          type: string
+          format: date
+          example: 2005-10-18
+        fundstelle:
+          $ref: "#/components/schemas/Fundstelle"
+        urheber:
+          $ref: "#/components/schemas/Urheber"
+    Person:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 2224
+        nachname:
+          type: string
+          example: Hocker
+        vorname:
+          type: string
+          example: Gero Clemens
+        typ:
+          type: string
+          example: Person
+        wahlperiode:
+          type: integer
+          format: int32
+          example: 19
+        basisdatum:
+          type: string
+          format: date
+          example: 2017-12-22
+        datum:
+          type: string
+          format: date
+          example: 2021-06-10
+        titel:
+          type: string
+          example: Dr.  Gero Clemens Hocker MdB FDP
+    FormatProp:
+      type: string
+      enum: [json, xml]
+    ZuordnungProp:
+      type: string
+      enum: [BT, BR, BV, EK]
+    DateProp:
+      type: string
+      format: date
+    UrheberString:
+      type: array
+      items:
+        type: string
+        example: Fraktion BÜNDNIS 90/DIE GRÜNEN
+    Urheber:
+      type: object
+      properties:
+        einbringer:
+          type: boolean
+        bezeichnung:
+          type: string
+          example: B90/GR
+        titel:
+          type: string
+          example: Fraktion BÜNDNIS 90/DIE GRÜNEN
+    Fundstelle:
+      type: object
+      properties:
+        pdf_url:
+          type: string
+          example: https://dserver.bundestag.de/btd/19/305/1930513.pdf
+        id:
+          type: string
+          example: 255234
+        dokumentnummer:
+          type: string
+          example: 19/30513
+        datum:
+          type: string
+          format: date
+          example: 2021-06-10
+        verteildatum:
+          type: string
+          format: date
+          example: 2021-06-10
+        dokumentart:
+          type: string
+          example: Drucksache
+        drucksachetyp:
+          type: string
+          example: Beschlussempfehlung und Bericht
+        herausgeber:
+          type: string
+          example: BT
+        urheber:
+          $ref: "#/components/schemas/UrheberString"
+    Vorgangsbezug:
+      type: array
+      items:
+        type: object
+        properties:
+          vorgangsposition:
+            type: string
+            example: Beschlussempfehlung und Bericht
+          vorgangstyp:
+            type: string
+            example: Gesetzgebung
+          titel:
+            type: string
+            example: Gesetz zur Durchführung der im Rahmen der Gemeinsamen Agrarpolitik geltenden Konditionalität (GAP-Konditionalitäten-Gesetz - GAPKondG)
+          id:
+            type: string
+            example: 276643
