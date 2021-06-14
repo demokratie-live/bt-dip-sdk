@@ -1,0 +1,25 @@
+{
+  "name": "@democracy-deutschland/bt-dip-sdk",
+  "version": "0.1.0-alpha.0",
+  "description": "Bundestag DIP - TypeScript SDK",
+  "main": "dist/index.js",
+  "author": "Manuel Ruck <m.ruck@democracy-deutschland.de>",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/demokratie-live/bt-dip-sdk",
+  "repository": "https://github.com/demokratie-live/bt-dip-sdk",
+  "scripts": {
+    "build": "tsc",
+    "gen": "yarn gen-sdk && yarn gen-docs",
+    "gen-sdk": "openapi-generator-cli generate -o ./src/__generated -i ./swagger.yml -g typescript-axios --additional-properties=useSingleRequestParameter=true",
+    "gen-docs": "typedoc --out docs src/index.ts",
+    "test": "ts-node-dev -r dotenv/config src/tests/usage.ts"
+  },
+  "devDependencies": {
+    "@openapitools/openapi-generator-cli": "^2.3.3",
+    "@types/node": "^15.12.2",
+    "dotenv": "^10.0.0",
+    "ts-node-dev": "^1.1.6",
+    "typedoc": "^0.20.36",
+    "typescript": "4.2"
+  }
+}
