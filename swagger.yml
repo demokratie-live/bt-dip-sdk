@@ -55,7 +55,7 @@ paths:
     get:
       tags:
         - Dip
-      operationId: getPlenarprotokoelle
+      operationId: getPlenarprotokolle
       description: Auto generated using Swagger Inspector
       parameters:
         - $ref: "#/components/parameters/Cursor"
@@ -75,7 +75,7 @@ paths:
     get:
       tags:
         - Dip
-      operationId: getDurcksachen
+      operationId: getDrucksachen
       description: Auto generated using Swagger Inspector
       parameters:
         - $ref: "#/components/parameters/Cursor"
