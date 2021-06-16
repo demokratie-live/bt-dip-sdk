@@ -1,6 +1,6 @@
 {
   "name": "@democracy-deutschland/bt-dip-sdk",
-  "version": "0.1.0-alpha.7",
+  "version": "0.1.0-alpha.8",
   "description": "Bundestag DIP - TypeScript SDK",
   "main": "lib/index.js",
   "author": "Manuel Ruck <m.ruck@democracy-deutschland.de>",

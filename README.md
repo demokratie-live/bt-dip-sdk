@@ -6,7 +6,13 @@ TypeScript SDK for the bundestag dip rest api: https://dip.bundestag.de/über-di
 
 ## Docs
 
+#### TypeScript Client
+
 https://demokratie-live.github.io/bt-dip-sdk/classes/dipapi.html
+
+#### Swagger
+
+https://app.swaggerhub.com/apis-docs/DEMOCRACY/BundestagDIP/0.1
 
 ## Install
 
