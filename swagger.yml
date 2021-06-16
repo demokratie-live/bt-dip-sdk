@@ -407,6 +407,7 @@ components:
           example: Berichterstattung
         typ:
           type: string
+          enum: ["Aktivität"]
           example: Aktivität
         vorgangsbezug_anzahl:
           type: integer
@@ -414,6 +415,7 @@ components:
           example: 4
         dokumentart:
           type: string
+          enum: ["Drucksache", "Plenarprotokoll"]
           example: Drucksache
         wahlperiode:
           type: integer
@@ -429,7 +431,42 @@ components:
         fundstelle:
           $ref: "#/components/schemas/Fundstelle"
         vorgangsbezug:
-          $ref: "#/components/schemas/Vorgangsbezug"
+          type: array
+          items:
+            $ref: "#/components/schemas/Vorgangsbezug"
+        deskriptor:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              typ:
+                type: string
+                enum:
+                  [
+                    "Freier Deskriptor",
+                    "Geograph. Begriffe",
+                    "Institutionen",
+                    "Personen",
+                    "Rechtsmaterialien",
+                    "Sachbegriffe",
+                  ]
+            required:
+              - name
+              - typ
+        abstract:
+          type: string
+      required:
+        - id
+        - aktivitaetsart
+        - typ
+        - vorgangsbezug_anzahl
+        - dokumentart
+        - wahlperiode
+        - datum
+        - titel
+        - fundstelle
     Vorgangsposition:
       type: object
       properties:
@@ -441,6 +478,7 @@ components:
           example: Antrag zur Weitergeltung der Geschäftsordnung
         zuordnung:
           type: string
+          enum: ["BT", "BR", "BV", "EK"]
           example: BT
         gang:
           type: boolean
@@ -453,6 +491,7 @@ components:
           example: Geschäftsordnung
         typ:
           type: string
+          enum: ["Vorgangsposition"]
           example: Vorgangsposition
         titel:
           type: string
@@ -463,6 +502,7 @@ components:
           example: 0
         dokumentart:
           type: string
+          enum: ["Drucksache", "Plenarprotokoll"]
           example: Drucksache
         vorgang_id:
           type: string
@@ -475,141 +515,397 @@ components:
           $ref: "#/components/schemas/Fundstelle"
         urheber:
           $ref: "#/components/schemas/Urheber"
+        ueberweisung:
+          type: array
+          items:
+            type: object
+            properties:
+              ausschuss:
+                type: string
+              ausschuss_kuerzel:
+                type: string
+              federfuehrung:
+                type: boolean
+              ueberweisungsart:
+                type: string
+            required:
+              - ausschuss
+              - ausschuss_kuerzel
+              - federfuehrung
+        aktivitaet_anzeige:
+          type: array
+          items:
+            type: object
+            properties:
+              aktivitaetsart:
+                type: string
+              titel:
+                type: string
+              pdf_url:
+                type: string
+              seite:
+                type: string
+            required:
+              - aktivitaetsart
+              - titel
+        ressort:
+          type: array
+          items:
+            type: object
+            properties:
+              federfuehrend:
+                type: boolean
+              titel:
+                type: string
+            required:
+              - federfuehrend
+              - titel
+        beschlussfassung:
+          type: array
+          items:
+            type: object
+            properties:
+              beschlusstenor:
+                type: string
+              seite:
+                type: string
+              abstimmungsart:
+                type: string
+                enum:
+                  [
+                    "Abstimmung durch Aufruf der Länder",
+                    "Geheime Wahl",
+                    "Hammelsprung",
+                    "Namentliche Abstimmung",
+                    "Verhältniswahl",
+                  ]
+              abstimm_ergebnis_bemerkung:
+                type: string
+              grundlage:
+                type: string
+              dokumentnummer:
+                type: string
+              mehrheit:
+                type: string
+                enum: ["Absolute Mehrheit", "Zweidrittelmehrheit"]
+            required:
+              - beschlusstenor
+        ratsdok:
+          type: string
+        kom:
+          type: string
+        mitberaten:
+          type: array
+          items:
+            type: object
+            properties:
+              vorgangsposition:
+                type: string
+              vorgangstyp:
+                type: string
+              titel:
+                type: string
+              id:
+                type: string
+            required:
+              - vorgangsposition
+              - vorgangstyp
+              - titel
+              - id
+        abstract:
+          type: string
+        sek:
+          type: string
     Vorgang:
       type: object
       properties:
         id:
           type: string
           example: 1
-        vorgangsposition:
+        beratungsstand:
           type: string
-          example: Antrag zur Weitergeltung der Geschäftsordnung
-        zuordnung:
-          type: string
-          example: BT
-        gang:
-          type: boolean
-        fortsetzung:
-          type: boolean
-        nachtrag:
-          type: boolean
         vorgangstyp:
           type: string
           example: Geschäftsordnung
         typ:
           type: string
+          enum: ["Vorgang"]
           example: Vorgangsposition
-        titel:
-          type: string
-          example: Weitergeltung von Geschäftsordnungsrecht
-        aktivitaet_anzahl:
+        wahlperiode:
           type: integer
           format: int32
-          example: 0
-        dokumentart:
-          type: string
-          example: Drucksache
-        vorgang_id:
-          type: string
-          example: 3
+        initiative:
+          type: array
+          items:
+            type: string
         datum:
           type: string
           format: date
           example: 2005-10-18
-        fundstelle:
-          $ref: "#/components/schemas/Fundstelle"
-        urheber:
-          $ref: "#/components/schemas/Urheber"
+        titel:
+          type: string
+          example: Weitergeltung von Geschäftsordnungsrecht
+        abstract:
+          type: string
+        sachgebiet:
+          type: array
+          items:
+            type: string
+        deskriptor:
+          type: array
+          items:
+            type: object
+            properties:
+              fundstelle:
+                type: boolean
+              name:
+                type: string
+              typ:
+                type: string
+            required:
+              - fundstelle
+              - name
+              - typ
+        gesta:
+          type: string
+        zustimmungsbeduerftigkeit:
+          type: array
+          items:
+            type: string
+        kom:
+          type: string
+        ratsdok:
+          type: string
+        verkuendung:
+          type: array
+          items:
+            type: object
+            properties:
+              jahrgang:
+                type: string
+              heftnummer:
+                type: string
+              seite:
+                type: string
+              ausfertigungsdatum:
+                type: string
+                format: date
+                example: 2005-10-18
+              verkuendungsdatum:
+                type: string
+                format: date
+                example: 2005-10-18
+              einleitungstext:
+                type: string
+              verkuendungsblatt_bezeichnung:
+                type: string
+              verkuendungsblatt_kuerzel:
+                type: string
+              fundstelle:
+                type: string
+              pdf_url:
+                type: string
+              titel:
+                type: string
+            required:
+              - jahrgang
+              - seite
+              - ausfertigungsdatum
+              - verkuendungsdatum
+              - einleitungstext
+              - fundstelle
+        inkrafttreten:
+          type: array
+          items:
+            type: object
+            properties:
+              datum:
+                type: string
+                format: date
+                example: 2005-10-18
+              erlaeuterung:
+                type: string
+            required:
+              - datum
+        archiv:
+          type: string
+        mitteilung:
+          type: string
+        vorgang_verlinkung:
+          type: array
+          items:
+            type: object
+            properties:
+              verweisung:
+                type: string
+              titel:
+                type: string
+              id:
+                type: string
+              wahlperiode:
+                type: integer
+                format: int32
+              gesta:
+                type: string
+            required:
+              - verweisung
+              - titel
+              - id
+              - wahlperiode
+        sek:
+          type: string
+      required:
+        - id
+        - vorgangstyp
+        - typ
+        - wahlperiode
+        - titel
     Plenarprotokoll:
       type: object
       properties:
         id:
           type: string
           example: 1
-        vorgangsposition:
+        dokumentart:
           type: string
-          example: Antrag zur Weitergeltung der Geschäftsordnung
-        zuordnung:
-          type: string
-          example: BT
-        gang:
-          type: boolean
-        fortsetzung:
-          type: boolean
-        nachtrag:
-          type: boolean
-        vorgangstyp:
-          type: string
-          example: Geschäftsordnung
+          enum: ["Plenarprotokoll"]
+          example: Drucksache
         typ:
           type: string
           example: Vorgangsposition
-        titel:
-          type: string
-          example: Weitergeltung von Geschäftsordnungsrecht
-        aktivitaet_anzahl:
+        vorgangsbezug_anzahl:
           type: integer
           format: int32
-          example: 0
-        dokumentart:
+        dokumentnummer:
           type: string
-          example: Drucksache
-        vorgang_id:
+        wahlperiode:
+          type: integer
+          format: int32
+        herausgeber:
           type: string
-          example: 3
+          enum: ["BT", "BR", "BV", "EK"]
         datum:
           type: string
           format: date
           example: 2005-10-18
+        titel:
+          type: string
+          example: Weitergeltung von Geschäftsordnungsrecht
         fundstelle:
           $ref: "#/components/schemas/Fundstelle"
-        urheber:
-          $ref: "#/components/schemas/Urheber"
+        vorgangsbezug:
+          type: array
+          items:
+            $ref: "#/components/schemas/Vorgangsbezug"
+        sitzungsbemerkung:
+          type: string
+      required:
+        - id
+        - dokumentart
+        - typ
+        - vorgangsbezug_anzahl
+        - dokumentnummer
+        - herausgeber
+        - datum
+        - titel
+        - fundstelle
     Drucksache:
       type: object
       properties:
         id:
           type: string
           example: 1
-        vorgangsposition:
+        drucksachetyp:
           type: string
-          example: Antrag zur Weitergeltung der Geschäftsordnung
-        zuordnung:
-          type: string
-          example: BT
-        gang:
-          type: boolean
-        fortsetzung:
-          type: boolean
-        nachtrag:
-          type: boolean
-        vorgangstyp:
-          type: string
-          example: Geschäftsordnung
-        typ:
-          type: string
-          example: Vorgangsposition
-        titel:
-          type: string
-          example: Weitergeltung von Geschäftsordnungsrecht
-        aktivitaet_anzahl:
-          type: integer
-          format: int32
-          example: 0
         dokumentart:
           type: string
+          enum: ["Drucksache"]
           example: Drucksache
-        vorgang_id:
+        autoren_anzahl:
+          type: integer
+          format: int32
+        typ:
           type: string
-          example: 3
+          enum: ["Dokument"]
+          example: Vorgangsposition
+        vorgangsbezug_anzahl:
+          type: integer
+          format: int32
+        dokumentnummer:
+          type: string
+        wahlperiode:
+          type: integer
+          format: int32
+        herausgeber:
+          type: string
+          enum: ["BT", "BR"]
         datum:
           type: string
           format: date
           example: 2005-10-18
+        titel:
+          type: string
+          example: Weitergeltung von Geschäftsordnungsrecht
+        autoren_anzeige:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              autor_titel:
+                type: string
+            required:
+              - id
+              - title
+              - autor_titel
         fundstelle:
           $ref: "#/components/schemas/Fundstelle"
         urheber:
           $ref: "#/components/schemas/Urheber"
+        vorgangsbezug:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              title:
+                type: string
+              vorgangstyp:
+                type: string
+            required:
+              - id
+              - title
+              - vorgangstyp
+        ressort:
+          type: array
+          items:
+            type: object
+            properties:
+              federfuehrend:
+                type: boolean
+              title:
+                type: string
+            required:
+              - federfuehrend
+              - title
+        anlagen:
+          type: string
+      required:
+        - id
+        - drucksachetyp
+        - dokumentart
+        - autoren_anzahl
+        - typ
+        - vorgangsbezug_anzahl
+        - dokumentnummer
+        - herausgeber
+        - datum
+        - titel
+        - fundstelle
     Person:
       type: object
       properties:
@@ -640,6 +936,46 @@ components:
         titel:
           type: string
           example: Dr.  Gero Clemens Hocker MdB FDP
+        person_roles:
+          type: array
+          items:
+            type: object
+            properties:
+              funktion:
+                type: string
+              fraktion:
+                type: string
+              nachname:
+                type: string
+              vorname:
+                type: string
+              wahlperiode_nummer:
+                type: array
+                items:
+                  type: integer
+                  format: int32
+              wahlkreiszusatz:
+                type: string
+              ressort_titel:
+                type: string
+              funktionszusatz:
+                type: string
+              bundesland:
+                $ref: "#/components/schemas/Bundesland"
+              namenszusatz:
+                type: string
+            required:
+              - funktion
+              - nachname
+              - vorname
+        namenszusatz:
+          type: string
+      required:
+        - id
+        - nachname
+        - vorname
+        - typ
+        - titel
     FormatProp:
       type: string
       enum: [json, xml]
@@ -649,11 +985,6 @@ components:
     DateProp:
       type: string
       format: date
-    UrheberString:
-      type: array
-      items:
-        type: string
-        example: Fraktion BÜNDNIS 90/DIE GRÜNEN
     Urheber:
       type: object
       properties:
@@ -665,6 +996,12 @@ components:
         titel:
           type: string
           example: Fraktion BÜNDNIS 90/DIE GRÜNEN
+        rolle:
+          type: string
+          enum: ["B", "U"]
+      required:
+        - bezeichnung
+        - titel
     Fundstelle:
       type: object
       properties:
@@ -681,35 +1018,95 @@ components:
           type: string
           format: date
           example: 2021-06-10
-        verteildatum:
-          type: string
-          format: date
-          example: 2021-06-10
         dokumentart:
           type: string
+          enum: ["Drucksache", "Plenarprotokoll"]
           example: Drucksache
         drucksachetyp:
           type: string
           example: Beschlussempfehlung und Bericht
         herausgeber:
           type: string
+          enum: ["BT", "BR", "BV", "EK"]
           example: BT
         urheber:
-          $ref: "#/components/schemas/UrheberString"
+          type: array
+          items:
+            oneOf:
+              - type: string
+                example: Fraktion BÜNDNIS 90/DIE GRÜNEN
+              - $ref: "#/components/schemas/Urheber"
+        verteildatum:
+          type: string
+          format: date
+          example: 2021-06-10
+        seite:
+          type: string
+        anfangsseite:
+          type: integer
+        endseite:
+          type: integer
+        anfangsquadrant:
+          $ref: "#/components/schemas/Quadrant"
+        endquadrant:
+          $ref: "#/components/schemas/Quadrant"
+        frage_nummer:
+          type: string
+        anlagen:
+          type: string
+        top:
+          type: integer
+          format: int32
+        top_zusatz:
+          type: string
+      required:
+        - id
+        - dokumentnummer
+        - datum
+        - dokumentart
+        - herausgeber
+        - urheber
+    Quadrant:
+      type: string
+      enum: ["A", "B", "C", "D", "S", "V"]
     Vorgangsbezug:
-      type: array
-      items:
-        type: object
-        properties:
-          vorgangsposition:
-            type: string
-            example: Beschlussempfehlung und Bericht
-          vorgangstyp:
-            type: string
-            example: Gesetzgebung
-          titel:
-            type: string
-            example: Gesetz zur Durchführung der im Rahmen der Gemeinsamen Agrarpolitik geltenden Konditionalität (GAP-Konditionalitäten-Gesetz - GAPKondG)
-          id:
-            type: string
-            example: 276643
+      type: object
+      properties:
+        vorgangsposition:
+          type: string
+          example: Beschlussempfehlung und Bericht
+        vorgangstyp:
+          type: string
+          example: Gesetzgebung
+        titel:
+          type: string
+          example: Gesetz zur Durchführung der im Rahmen der Gemeinsamen Agrarpolitik geltenden Konditionalität (GAP-Konditionalitäten-Gesetz - GAPKondG)
+        id:
+          type: string
+          example: 276643
+      required:
+        - vorgangsposition
+        - vorgangstyp
+        - titel
+        - id
+    Bundesland:
+      type: string
+      enum:
+        [
+          "Baden-Württemberg",
+          "Bayern",
+          "Berlin",
+          "Brandenburg",
+          "Bremen",
+          "Hamburg",
+          "Hessen",
+          "Mecklenburg-Vorpommern",
+          "Niedersachsen",
+          "Nordrhein-Westfalen",
+          "Rheinland-Pfalz",
+          "Saarland",
+          "Sachsen",
+          "Sachsen-Anhalt",
+          "Schleswig-Holstein",
+          "Thüringen",
+        ]
