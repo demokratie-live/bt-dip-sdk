@@ -11,7 +11,7 @@ https://demokratie-live.github.io/bt-dip-sdk/classes/dipapi.html
 ## Install
 
 ```
-yarn add @democracy-deutschland/bt-dip-sdk@0.1.0-alpha.6
+yarn add @democracy-deutschland/bt-dip-sdk
 ```
 
 ## Prerequirements
