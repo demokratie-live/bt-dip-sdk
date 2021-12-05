@@ -350,7 +350,7 @@ components:
         documents:
           type: array
           items:
-            $ref: "#/components/schemas/Vorgang"
+            $ref: "#/components/schemas/Vorgangsposition"
         cursor:
           type: string
           example: AoJwwLKE9/kCMkFrdGl2aXRhZXQtMTU2MDQ2MQ==

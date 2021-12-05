@@ -13,13 +13,13 @@ let cursor: any = undefined; // Issue: Why this should be any? If it's of type "
   let hasNext: boolean = true;
   let counter = 0;
   while (hasNext) {
-    const { data } = await api.getPersonen({
+    const { data } = await api.getAktivitaeten({
       cursor,
     });
     hasNext = cursor !== data.cursor;
     cursor = data.cursor;
     counter += data.documents?.length ?? 0;
-    console.log(data.documents?.[0].vorname)
+
     console.log(
       `-${data.cursor}- ${counter}/${(data as VorgangResponse).numFound}`
     );
