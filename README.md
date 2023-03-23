@@ -1,19 +1,14 @@
-🚧 Still under Constructionn 🚧
-
 # 🏛 Dokumentations- und Informationssystems für Parlamentsmaterialien (DIP) – SDK
 
 TypeScript SDK for the bundestag dip rest api: https://dip.bundestag.de/über-dip/hilfe/api
 
+> :warning: **Breacking changes in v0.1.2**: This SDK is now using the official swagger file from bundestag.
+
 ## Docs
-
-#### TypeScript Client
-
-https://demokratie-live.github.io/bt-dip-sdk/classes/dipapi.html
 
 #### Swagger
 
-https://app.swaggerhub.com/apis-docs/DEMOCRACY/BundestagDIP/0.1
-
+https://search.dip.bundestag.de/api/v1/swagger-ui/
 ## Install
 
 ```
@@ -29,16 +24,16 @@ You can get an apiKey from https://dip.bundestag.de/über-dip/hilfe/api
 ## Usage
 
 ```ts
-import { DipApi, Configuration } from "@democracy-deutschland/bt-dip-sdk";
+import { VorgngeApi, Configuration } from "@democracy-deutschland/bt-dip-sdk";
 
 const config = new Configuration({
   apiKey: "ApiKey #YOUR_API_KEY#", // Replace #YOUR_API_KEY# with your api key
 });
 
-const api = new DipApi(config);
+const api = new VorgngeApi(config);
 
 api
-  .getVorgaenge({
+  .getVorgangList({
     fDatumStart: "2020-06-01",
     fDatumEnd: "2020-06-20",
   })
