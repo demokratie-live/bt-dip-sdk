@@ -7,7 +7,10 @@
   "author": "Manuel Ruck <m.ruck@democracy-deutschland.de>",
   "license": "Apache-2.0",
   "homepage": "https://www.democracy-deutschland.de",
-  "repository": "https://github.com/demokratie-live/bt-dip-sdk",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demokratie-live/bt-dip-sdk.git"
+  },
   "files": [
     "lib"
   ],
