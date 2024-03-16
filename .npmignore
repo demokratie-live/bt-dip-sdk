@@ -1,9 +1,0 @@
-.github
-node_modules
-src
-.env
-.gitignore
-.esbuild.js
-openapitools.json
-swagger.yml
-tsconfig.json
