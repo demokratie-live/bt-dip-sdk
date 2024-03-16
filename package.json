@@ -17,13 +17,13 @@
     "prepublishOnly": "yarn build"
   },
   "devDependencies": {
-    "@openapitools/openapi-generator-cli": "^2.5.2",
-    "@types/node": "^18.15.6",
-    "dotenv": "^16.0.3",
-    "esbuild": "^0.17.12",
-    "esbuild-node-externals": "^1.6.0",
+    "@openapitools/openapi-generator-cli": "^2.7.0",
+    "@types/node": "^20.8.7",
+    "dotenv": "^16.3.1",
+    "esbuild": "^0.20.2",
+    "esbuild-node-externals": "^1.9.0",
     "ts-node-dev": "^2.0.0",
-    "typedoc": "^0.23.28",
-    "typescript": "5.0.2"
+    "typedoc": "^0.25.2",
+    "typescript": "5.4.2"
   }
 }
