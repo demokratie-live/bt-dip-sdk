@@ -1,6 +1,6 @@
 {
   "name": "@democracy-deutschland/bt-dip-sdk",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Bundestag DIP - TypeScript SDK",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -9,16 +9,20 @@
   "homepage": "https://www.democracy-deutschland.de",
   "repository": "https://github.com/demokratie-live/bt-dip-sdk",
   "scripts": {
-    "build": "yarn gen && tsc && node esbuild.js",
-    "gen": "yarn gen-sdk && yarn gen-docs",
+    "build": "pnpm gen && tsc && node esbuild.js",
+    "gen": "pnpm gen-sdk && pnpm gen-docs",
     "gen-sdk": "openapi-generator-cli generate -o ./src/__generated -i https://search.dip.bundestag.de/api/v1/openapi.yaml -g typescript-axios --additional-properties=useSingleRequestParameter=true,supportsES6=true,modelPropertyNaming='original' --enable-post-process-file  --reserved-words-mappings abstract=abstract",
     "gen-docs": "typedoc --out docs src/index.ts",
     "test": "ts-node-dev -r dotenv/config src/tests/usage.ts",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "pnpm build"
+  },
+  "peerDependencies": {
+    "axios": "*"
   },
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "^2.7.0",
     "@types/node": "^20.8.7",
+    "axios": "^1.6.8",
     "dotenv": "^16.3.1",
     "esbuild": "^0.20.2",
     "esbuild-node-externals": "^1.9.0",

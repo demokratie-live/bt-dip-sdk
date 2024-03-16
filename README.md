@@ -12,7 +12,7 @@ https://search.dip.bundestag.de/api/v1/swagger-ui/
 ## Install
 
 ```
-yarn add @democracy-deutschland/bt-dip-sdk
+pnpm add @democracy-deutschland/bt-dip-sdk
 ```
 
 ## Prerequirements
@@ -44,7 +44,7 @@ api
 ## Contribute
 
 ```sh
-yarn
+pnpm install
 # Edit swagger.yml
-yarn gen
+pnpm gen
 ```
