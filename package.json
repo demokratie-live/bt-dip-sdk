@@ -1,6 +1,6 @@
 {
   "name": "@democracy-deutschland/bt-dip-sdk",
-  "version": "1.3.0-alpha.0",
+  "version": "1.3.0",
   "description": "Bundestag DIP - TypeScript SDK",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
